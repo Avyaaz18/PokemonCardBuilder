@@ -150,6 +150,12 @@ img{
     transform: translateY(-2px); 
 }
 
+.error-message {
+    color: white;
+    font-size: 0.9rem;
+    visibility: hidden; 
+}
+
 
 
 

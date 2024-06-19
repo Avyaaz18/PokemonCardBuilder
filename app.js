@@ -8,6 +8,10 @@ async function validInput(input){
        if(response.ok){
         const data = await response.json();
         generateCard(data);
+        clearError();
+       }
+       else{
+        displayError("Enter a valid Pokémon name.");
        }
     }
     catch(err){
@@ -101,12 +105,19 @@ btn.addEventListener("click", () => {
     if (search) {
         validInput(search);
     } else {
-        displayError("Please enter a valid Pokémon name.");
+        alert("Please enter a valid Pokémon name.");
     }
 });
 
 function displayError(message) {
-    alert(message); 
+    const errorMessage = document.getElementById("error-message");
+    errorMessage.textContent = message;
+    errorMessage.style.visibility = "visible"; 
+}
+
+function clearError() {
+    const errorMessage = document.getElementById("error-message");
+    errorMessage.style.visibility = "hidden"; 
 }
 
 function createShinyButton(theme) {
